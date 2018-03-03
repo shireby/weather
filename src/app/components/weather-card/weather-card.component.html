@@ -1,0 +1,18 @@
+<mat-card class="weather-card" [@adjustSize]='state' (click)="animateMe()">
+  <mat-card-header class="title">Current</mat-card-header>
+  <mat-grid-list [cols]="4" [rowHeight]="'80px'">
+    <mat-grid-tile [colspan]="2" [rowspan]="2">
+      <app-weather-icon [weather]="weatherCondition.main"></app-weather-icon>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+
+      <p class="gird-content-align-left weather-info__icon">{{ weatherCondition?.main }}</p>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <p class="gird-content-align-left weather-info">
+        <fa name="thermometer-half" class="weather-info__icon"></fa>
+        <span [innerHtml]="weatherCondition?.temperature | number | temperature"></span>
+      </p>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>

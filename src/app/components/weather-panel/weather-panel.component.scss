@@ -1,0 +1,16 @@
+@import "../../../styles/breakpoints";
+
+:host {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  min-height: 200px;
+  position: fixed;
+  bottom: 0;
+  background: white;
+  padding: 5px;
+
+  @include breakpoint($mobile) {
+    padding: 0;
+  }
+}

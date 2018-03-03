@@ -1,0 +1,31 @@
+.weather-icon {
+  overflow: hidden;
+  display: block;
+  width: 150px;
+  height: 148px;
+  background-size: 1000px ;
+  background-image: url('/assets/weather-icons.png');
+
+  &--cloud {
+    background-position: 2px -21px;
+  }
+
+  &--clear {
+    background-position: -204px -16px;
+    &--night {
+      background-position: -410px -154px;
+    }
+  }
+
+  &--snow {
+    background-position: -411px -259px;
+  }
+
+  &--thunder {
+    background-position: -204px -16px;
+  }
+
+  &--sleet {
+    background-position: -0px -487px;
+  }
+}

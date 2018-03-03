@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  max-width: 500px;
+}
+.weather-card {
+  transform-origin: 0 0;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.weather-info {
+  padding-bottom: 2px;
+  margin-top: 25px;
+  font-size: 1.3em;
+  white-space: nowrap;
+  font-weight: 600;
+  &__icon {
+    font-size: 2.5rem;
+  }
+
+}

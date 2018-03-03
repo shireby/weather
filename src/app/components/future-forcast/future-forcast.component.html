@@ -1,8 +1,5 @@
-<!--<mat-grid-list [cols]="5" [rowHeight]="'2:1'">-->
-  <!--<mat-grid-tile [colspan]="1">-->
-    <!--<app-weather-card [weatherCondition]="null"></app-weather-card>-->
-  <!--</mat-grid-tile>-->
-  <!--<mat-grid-tile [colspan]="1">-->
-    <!--<app-weather-card [weatherCondition]="null"></app-weather-card>-->
-  <!--</mat-grid-tile>-->
-<!--</mat-grid-list>-->
+<mat-grid-list [cols]="5" [rowHeight]="'350px'" *ngIf="forecast.length > 0">
+  <mat-grid-tile *ngFor="let weatherCondition of forecast" [colspan]="1">
+    <app-weather-card class="weather-card" [weatherCondition]="weatherCondition"></app-weather-card>
+  </mat-grid-tile>
+</mat-grid-list>

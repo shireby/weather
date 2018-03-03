@@ -21,6 +21,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class WeatherCardComponent implements OnInit {
   state = 'standard';
   @Input() weatherCondition: WeatherCondition = null;
+  @Input() title = '';
 
   constructor() { }
 

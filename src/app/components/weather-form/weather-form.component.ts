@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Sanitizer} from '@angular/core';
 import {WeatherService} from '../../services/weather.service';
+import {MatSnackBar} from '@angular/material';
+import * as _ from 'lodash';
 
 @Component({
     selector: 'app-weather-form',
@@ -7,9 +9,11 @@ import {WeatherService} from '../../services/weather.service';
     styleUrls: ['./weather-form.component.scss']
 })
 export class WeatherFormComponent implements OnInit {
-    constructor(private weatherService: WeatherService) {}
     location = '';
     showForm = false;
+
+    constructor(private weatherService: WeatherService, private snackBar: MatSnackBar, private sanitizer: Sanitizer) {}
+
     ngOnInit() {
         setTimeout(() => {
             this.showForm = true;
@@ -30,8 +34,14 @@ export class WeatherFormComponent implements OnInit {
                 (data) => {
                     return true;
                 },
-                (err) => {
-                    console.log('Sorry something went wrong with get Forecast', err);
+                (err: Response) => {
+                    if (err.status === 404) {
+                        const message = _.capitalize(location) + ' not found';
+                        this.snackBar.open(message, 'Dismiss', {
+                            duration: 2000
+                        });
+                    }
+                    console.log('Sorry something went wrong with get Forecast');
                 }
             );
         }

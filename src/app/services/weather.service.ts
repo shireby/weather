@@ -24,6 +24,7 @@ export class WeatherService {
 
         return this.http.get(MAIN_CONF.api_url + 'weather', {params: params}).map(
             (data) => {
+                console.log('Handle error');
                 const weatherData: Weather = new WeatherConditionOpenWeatherMapAdapter(data);
                 this.store.dispatch(new CurrentWeatherDataAction(weatherData.getJson()));
             },

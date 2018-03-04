@@ -15,7 +15,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         transform: 'scale(.2)',
       })),
       transition('* => *', animate('300ms ease-in')),
-    ]),
+    ])
   ]
 })
 export class WeatherCardComponent implements OnInit {
@@ -23,11 +23,14 @@ export class WeatherCardComponent implements OnInit {
   @Input() weatherCondition: WeatherCondition = null;
   @Input() title = '';
   @Input() size = 'full';
-
+  loaded = false;
   constructor() { }
 
   ngOnInit() {
+    this.loaded = true;
+    console.log('new');
   }
+
 
   animateMe() {
     this.state = (this.state === 'small' ? 'large' : 'small');

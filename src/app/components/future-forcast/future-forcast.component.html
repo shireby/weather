@@ -1,5 +1,5 @@
 <mat-grid-list [cols]="5" [rowHeight]="'350px'" *ngIf="forecast.length > 0">
     <mat-grid-tile *ngFor="let weatherCondition of forecast" [colspan]="1">
-        <app-weather-card [size]="'small'" class="weather-card" [weatherCondition]="weatherCondition"></app-weather-card>
+        <app-weather-card [size]="'small'" class="weather-card animated zoomIn" [weatherCondition]="weatherCondition"></app-weather-card>
     </mat-grid-tile>
 </mat-grid-list>

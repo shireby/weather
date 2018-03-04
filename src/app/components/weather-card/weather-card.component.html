@@ -1,4 +1,4 @@
-<span *ngIf="(size === 'full') else smallCard">
+<div *ngIf="(size === 'full') else smallCard" [@enter]="loaded">
     <mat-card class="weather-card" [@adjustSize]='state' (click)="animateMe()">
         <mat-card-header class="title">{{ title }}</mat-card-header>
         <mat-grid-list [cols]="4" [rowHeight]="'80px'">
@@ -17,10 +17,10 @@
             </mat-grid-tile>
         </mat-grid-list>
     </mat-card>
-</span>
+</div>
 
 <ng-template #smallCard>
-    <mat-card class="weather-card--small">
+    <mat-card class="weather-card--small animated zoomIn">
         <mat-grid-list [cols]="2" [rowHeight]="'25px'">
             <mat-grid-tile [colspan]="2" [rowspan]="2">
                 <app-weather-icon [size]="'small'" [weather]="weatherCondition.main"></app-weather-icon>

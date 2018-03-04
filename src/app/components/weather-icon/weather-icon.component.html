@@ -1,2 +1,4 @@
-<i class="wi" [ngClass]="getWeatherIcon(weatherIconClass)"></i>
+<div class="weather-icon" [ngClass]="{'weather-icon--small' : size === 'small'}">
+    <i class="wi" [ngClass]="getWeatherIcon(weatherIconClass)"></i>
+</div>
 

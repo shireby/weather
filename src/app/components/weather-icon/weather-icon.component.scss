@@ -1,5 +1,7 @@
-:host {
+.weather-icon {
   display: block;
   font-size: 6rem;
-
+  &--small {
+    font-size: 2rem;
+  }
 }

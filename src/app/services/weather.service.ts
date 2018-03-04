@@ -34,7 +34,7 @@ export class WeatherService {
         );
     }
 
-    getForecast(location) {
+    getForecast(location, numberOfDays = 5) {
         let params = new HttpParams(location);
         params = params.append('q', location + ',uk');
         params = params.append('appid', this.apiKey);
@@ -47,13 +47,14 @@ export class WeatherService {
                 if (isNullOrUndefined( data['list']) === false) {
                     Object.entries(data['list']).forEach(([key, weatherCondition]) => {
                         const weather = new WeatherConditionOpenWeatherMapAdapter(weatherCondition);
-                        if (days.indexOf(weather.getJson().date.getDay()) < 0 && Number(key) !== 0) {
+                        if (days.length < numberOfDays && (days.indexOf(weather.getJson().date.getDay()) < 0 && Number(key) !== 0) ) {
+                            console.log(Number(key));
                             days.push(weather.getJson().date.getDay());
                             weatherConditions.push(weather.getJson());
                         }
                     });
                 }
-
+                console.log(weatherConditions);
                 this.store.dispatch(new ForecastWeatherDataAction(weatherConditions));
             },
             (err) => {

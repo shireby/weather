@@ -22,6 +22,7 @@ export class WeatherCardComponent implements OnInit {
   state = 'standard';
   @Input() weatherCondition: WeatherCondition = null;
   @Input() title = '';
+  @Input() size = 'full';
 
   constructor() { }
 

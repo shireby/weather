@@ -18,7 +18,6 @@ export class FutureForecastComponent implements OnInit {
         this.store.subscribe((appStore) => {
             this.forecast = [];
             const forecastWeather = appStore['store']['dataStore']['forecastWeather'];
-            console.log(forecastWeather);
             for (const weather of forecastWeather) {
                 this.forecast.push(new WeatherCondition(weather));
             }

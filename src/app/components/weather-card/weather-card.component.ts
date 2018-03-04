@@ -23,12 +23,11 @@ export class WeatherCardComponent implements OnInit {
   @Input() weatherCondition: WeatherCondition = null;
   @Input() title = '';
   @Input() size = 'full';
-  loaded = false;
+
   constructor() { }
 
   ngOnInit() {
-    this.loaded = true;
-    console.log('new');
+
   }
 
 

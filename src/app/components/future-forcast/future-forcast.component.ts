@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WeatherCondition} from '../../models/weather-condition';
 import {AppState} from '../../store/app-store';
 import {Store} from '@ngrx/store';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-future-forecast',
     templateUrl: './future-forcast.component.html',
     styleUrls: ['./future-forcast.component.scss']
 })
-export class FutureForecastComponent implements OnInit {
+export class FutureForecastComponent implements OnInit, OnDestroy {
     forecast: Array<WeatherCondition> = [];
+    subscriptions: Array<Subscription> = [];
 
     constructor(private store: Store<AppState>) {
     }
@@ -22,6 +24,12 @@ export class FutureForecastComponent implements OnInit {
                 this.forecast.push(new WeatherCondition(weather));
             }
         });
+    }
+
+    ngOnDestroy() {
+        for (const subscription of this.subscriptions) {
+            subscription.unsubscribe();
+        }
     }
 
 }

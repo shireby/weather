@@ -43,18 +43,15 @@ export class WeatherService {
             (data) => {
                 const weatherConditions: Array<Weather> = [];
                 const days = [];
-
                 if (isNullOrUndefined( data['list']) === false) {
                     Object.entries(data['list']).forEach(([key, weatherCondition]) => {
                         const weather = new WeatherConditionOpenWeatherMapAdapter(weatherCondition);
                         if (days.length < numberOfDays && (days.indexOf(weather.getJson().date.getDay()) < 0 && Number(key) !== 0) ) {
-                            console.log(Number(key));
                             days.push(weather.getJson().date.getDay());
                             weatherConditions.push(weather.getJson());
                         }
                     });
                 }
-                console.log(weatherConditions);
                 this.store.dispatch(new ForecastWeatherDataAction(weatherConditions));
             },
             (err) => {

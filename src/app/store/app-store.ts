@@ -10,6 +10,7 @@ export interface UiStore {
 export interface DataStore {
     currentWeather: Object;
     forecastWeather: Object;
+    season: string;
 }
 
 export const INITIAL_APP_STATE: AppState = {
@@ -18,6 +19,7 @@ export const INITIAL_APP_STATE: AppState = {
     },
     dataStore: {
         currentWeather: {},
-        forecastWeather: {}
+        forecastWeather: {},
+        season: null
     }
 };

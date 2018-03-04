@@ -14,7 +14,7 @@ export class AppComponent {
     bgImageUrl = 'https://source.unsplash.com/collection/213162/1600x900';
 
     bgMap = {
-        spring: '592682',
+        spring: '1343979',
         winter: '213162',
         summer: '149495',
         autumn: '1224961'

@@ -9,7 +9,7 @@ const DEFAULT_WEATEHR = 'cloud';
   styleUrls: ['./weather-icon.component.scss']
 })
 export class WeatherIconComponent implements OnInit {
-
+  @Input() size = 'full'
   iconClassMappingDay = {
     cloud: 'wi-day-cloudy',
     clear: 'wi-day-sunny',

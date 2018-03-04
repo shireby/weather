@@ -1,8 +1,15 @@
 <div class="weather-panel" [@togglePanel]="panelState">
     <button class="toggle-button" mat-fab color="primary" (click)="togglePanel()">Close</button>
     <div class="content">
-        <app-current-weather></app-current-weather>
-        <app-future-forecast></app-future-forecast>
+        <mat-grid-list [cols]="5">
+            <mat-grid-tile [colspan]="2">
+                <app-current-weather></app-current-weather>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="3">
+                <app-future-forecast></app-future-forecast>
+            </mat-grid-tile>
+        </mat-grid-list>
+
     </div>
 </div>
 

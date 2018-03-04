@@ -1,5 +1,4 @@
 import {Weather} from './i-weather';
-import {WeatherData} from '../models/weather-condition';
 
 export class WeatherConditionOpenWeatherMapAdapter implements Weather {
     protected _data;

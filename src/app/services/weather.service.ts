@@ -8,7 +8,6 @@ import {AppState} from '../store/app-store';
 import {Weather} from '../adapters/i-weather';
 import {WeatherConditionOpenWeatherMapAdapter} from '../adapters/open-weather-map.adapter';
 import {ForecastWeatherDataAction} from '../store/actions/forcast-weather-data-action';
-import {WeatherData} from '../models/weather-condition';
 import {isNullOrUndefined} from 'util';
 
 @Injectable()
